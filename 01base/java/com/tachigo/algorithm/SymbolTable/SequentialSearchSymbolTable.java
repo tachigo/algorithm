@@ -22,6 +22,13 @@ public class SequentialSearchSymbolTable<K, V> {
     private Node first;
 
 
+    private int size = 0;
+
+
+    public int size() {
+        return size;
+    }
+
 
     public V get(K key) {
         for (Node x = first; x != null; x = x.next) {
@@ -42,6 +49,27 @@ public class SequentialSearchSymbolTable<K, V> {
         }
         // 头插法
         first = new Node(key, val, first);
+        size++;
+    }
+
+
+    public void delete(K key) {
+        // 如果首节点匹配
+        if (key.equals(first.key)) {
+            first = first.next;
+        } else {
+            Node p = first;
+            for (Node x = first.next; x != null; x = x.next) {
+                if (key.equals(x.key)) {
+                    // 找到 进行删除
+                    p.next = x.next;
+                    return;
+                } else {
+                    p = x;
+                }
+            }
+        }
+        size--;
     }
 
 }
