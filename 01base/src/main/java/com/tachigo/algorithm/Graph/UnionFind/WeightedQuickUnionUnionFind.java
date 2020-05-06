@@ -1,4 +1,4 @@
-package com.tachigo.algorithm.Graph;
+package com.tachigo.algorithm.Graph.UnionFind;
 
 /**
  * 为了避免基于quick-union算法最坏情况出现一个单链表，

@@ -1,4 +1,4 @@
-package com.tachigo.algorithm.Graph;
+package com.tachigo.algorithm.Graph.UnionFind;
 
 /**
  * 基于quick-union算法的并查集
