@@ -4,12 +4,12 @@ package com.tachigo.algorithm.Graph.UnionFind;
  * 基于quick-union算法的并查集
  * 相对于quick-find算法，提高union的速度
  */
-public class UnionFindQuickUnion {
+public class QuickUnionUF {
 
     private int[] id; // 用父链接的形式表示了一片森林
     private int count; // 连通分量的数量
 
-    public UnionFindQuickUnion(int n) {
+    public QuickUnionUF(int n) {
         count = n;
         id = new int[n];
         for (int i = 0; i < n; i++) {
@@ -52,9 +52,7 @@ public class UnionFindQuickUnion {
 
 
 
-    public static class Test {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
-        }
     }
 }

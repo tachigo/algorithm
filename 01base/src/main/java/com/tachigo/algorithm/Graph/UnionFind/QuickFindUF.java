@@ -4,13 +4,13 @@ package com.tachigo.algorithm.Graph.UnionFind;
  * 基于quick-find算法的并查集
  * 保证当且仅当 id[p] == id[q] 时，p与q相连
  */
-public class UnionFindQuickFind {
+public class QuickFindUF {
 
     private int[] id; // 分量ID
     private int count = 0;
 
 
-    public UnionFindQuickFind(int n) {
+    public QuickFindUF(int n) {
         count = n;
         id = new int[n];
         for (int i = 0; i < n; i++) {
@@ -73,9 +73,7 @@ public class UnionFindQuickFind {
 
 
 
-    public static class Test {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
-        }
     }
 }

@@ -1,12 +1,21 @@
 package com.tachigo.algorithm.Graph.UnionFind;
 
-public class PathCompressWeightedQuickUnionUnionFind {
+/**
+ * 为了避免基于quick-union算法最坏情况出现一个单链表，
+ * 即在union过程中形成的树不平衡。
+ * 记录每棵树的大小，并总是将较小的树链接到较大的树上。
+ * 使得树的高度远远小于未加权的版本所构造的树的高度
+ */
+public class WeightedQuickUnionUF {
 
-    private int[] id;
-    private int[] size;
-    private int count;
 
-    public PathCompressWeightedQuickUnionUnionFind(int n) {
+    private int[] id; // 父链接数组
+    private int[] size; // 各个根节点所对应的分量大小，即其节点的数量
+
+    private int count; // 连通分量的数量
+
+
+    public WeightedQuickUnionUF(int n) {
         count = n;
         id = new int[n];
         size = new int[n];
@@ -16,28 +25,17 @@ public class PathCompressWeightedQuickUnionUnionFind {
         }
     }
 
+
     public int count() {
         return count;
     }
 
+
     public int find(int p) {
-//        while (p != id[p]) {
-//            id[p] = id[id[p]]; // 通过这个方法将find要查找的路径减半
-//            p = id[p];
-//        }
-//        return p;
-        // 直接替换路径上所有节点的链接到根节点
-        // 找到根q
-        int q = p;
-        while (q != id[q]) {
-            q = id[q];
-        }
         while (p != id[p]) {
-            int tmp = p;
             p = id[p];
-            id[tmp] = q;
         }
-        return q;
+        return p;
     }
 
 
@@ -52,26 +50,20 @@ public class PathCompressWeightedQuickUnionUnionFind {
         if (pRoot == qRoot) {
             return;
         }
-        int reRoot;
         if (size[pRoot] < size[qRoot]) {
-            // p到q
+            // p这棵树的节点数量小于q这棵树的节点数量
+            // 将p链接到q
             id[pRoot] = qRoot;
             size[qRoot] += size[pRoot];
-            reRoot = pRoot;
         } else {
-            // q到p
             id[qRoot] = pRoot;
             size[pRoot] += size[qRoot];
-            reRoot = qRoot;
         }
-        // 最好再次find一下
-        find(reRoot);
         count--;
     }
 
-    public static class Test {
-        public static void main(String[] args) {
 
-        }
+    public static void main(String[] args) {
+
     }
 }

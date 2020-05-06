@@ -1,7 +1,7 @@
 package com.tachigo.algorithm.PriorityQueue;
 
 /**
- * 完全二叉堆实现的优先级队列
+ * 大根完全二叉堆实现的优先级队列
  * @param <T>
  */
 public class MaxBinaryHeapPQ<T extends Comparable<T>> {
@@ -25,7 +25,6 @@ public class MaxBinaryHeapPQ<T extends Comparable<T>> {
     }
 
     /**
-     * 这里实现的是maxPQ
      * @param i
      * @param j
      * @return
@@ -143,9 +142,7 @@ public class MaxBinaryHeapPQ<T extends Comparable<T>> {
 
 
 
-    public static class Test {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
-        }
     }
 }

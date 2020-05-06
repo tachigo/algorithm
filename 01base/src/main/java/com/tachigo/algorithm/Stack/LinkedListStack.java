@@ -25,6 +25,10 @@ public class LinkedListStack<T> implements Iterable<T> {
         return n;
     }
 
+    /**
+     * 头插法
+     * @param item
+     */
     public void push(T item) {
         Node oldFirst = first;
         first = new Node();

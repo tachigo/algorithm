@@ -3,7 +3,7 @@ package com.tachigo.algorithm.Queue;
 import java.util.Iterator;
 
 /**
- * 单链表实现的队列
+ * 双向链表实现的队列
  * @param <T>
  */
 public class LinkedListQueue<T> implements Iterable<T> {
@@ -81,9 +81,7 @@ public class LinkedListQueue<T> implements Iterable<T> {
     }
 
 
-    public static class Test {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
-        }
     }
 }
