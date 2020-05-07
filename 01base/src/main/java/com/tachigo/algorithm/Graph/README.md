@@ -9,7 +9,7 @@
 
 #### 深度优先搜索的其他应用
 
-寻找是否有环
+寻找是否有环（cycle），检测是否是一个二分图（bipartite）等。
 
 ### 广度优先搜索 BreadthFirstSearch
 

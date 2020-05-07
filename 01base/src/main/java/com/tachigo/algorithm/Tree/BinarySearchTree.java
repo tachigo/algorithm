@@ -1,12 +1,9 @@
-package com.tachigo.algorithm.SymbolTable;
+package com.tachigo.algorithm.Tree;
 
 import com.tachigo.algorithm.Queue.LinkedListQueue;
 
-import java.util.Iterator;
-import java.util.Queue;
-
 /**
- * 二叉查找树
+ * 二叉查找树 BST
  */
 public class BinarySearchTree<K extends Comparable<K>, V> {
 
@@ -14,7 +11,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         private K key;
         private V val;
         private Node left, right;
-        private int n; // 以该节点为跟的子树中的节点总数
+        private int n; // 以该节点为跟的子树中的节点总数，包含根
 
         public Node(K key, V val, int n) {
             this.key = key;
@@ -117,7 +114,11 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         return max(x.right);
     }
 
-
+    /**
+     * 向下取整：最接近key的比key小的节点
+     * @param key
+     * @return
+     */
     public K floor(K key) {
         Node x = floor(root, key);
         if (x == null) {
@@ -144,6 +145,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         else {
             // key > x.key
             Node t = floor(x.right, key);
+            // 最终返回的地方在这里
             if (t != null) {
                 return t;
             } else {
@@ -152,7 +154,11 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         }
     }
 
-
+    /**
+     * 向上取整：最接近key的比key大的节点
+     * @param key
+     * @return
+     */
     public K ceil(K key) {
         Node x = ceil(root, key);
         if (x == null) {
@@ -180,6 +186,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         else {
             // key < x.key
             Node t = ceil(x.left, key);
+            // 真正返回的是在这里
             if (t != null) {
                 return t;
             } else {
@@ -189,7 +196,11 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
     }
 
 
-
+    /**
+     * 选择出排行为rank的节点的key
+     * @param rank
+     * @return
+     */
     public K select(int rank) {
         Node x = select(root, rank);
         if (x == null) {
@@ -357,9 +368,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> {
         }
     }
 
-    public static class Test {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
-        }
     }
 }
