@@ -45,6 +45,11 @@ public class LinkedListStack<T> implements Iterable<T> {
         return item;
     }
 
+
+    public T peek() {
+        return first.item;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new ListIterator();
